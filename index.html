@@ -3,9 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
+    <h2>Live output</h2>
+
+    <div class="output" style="min-height: 125px">
+      <ul></ul>
+    </div>
+
+    <h2>Editable code</h2>
+    <p class="a11y-label">
+      Press Esc to move focus away from the code area (Tab inserts a tab
+      character).
+    </p>
+
+    <textarea id="code" class="playable-code" style="height: 290px; width: 95%">
+const list = document.querySelector('.output ul');
+list.textContent = "";
+const greetings = ['Happy Birthday!',
+                 'Merry Christmas my love',
+                 'A happy Christmas to all the family',
+                 'You\'re all I want for Christmas',
+                 'Get well soon'];
+
+for (const greeting of greetings) {
+  // Your conditional test needs to go inside the parentheses
+  // in the line below, replacing what's currently there
+  if (greeting) {
+    const listItem = document.createElement('li');
+    listItem.textContent = greeting;
+    list.appendChild(listItem);
+  }
+}
+</textarea
+    >
+
+    <div class="playable-buttons">
+      <input id="reset" type="button" value="Reset" />
+      <input id="solution" type="button" value="Show solution" />
+    </div>
+
     <script src="string.js"></script>
   </body>
 </html>
