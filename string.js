@@ -74,17 +74,44 @@
 //   }
 // }
 // Fixing capitalization
+// const list = document.querySelector(".output ul")
+// list.textContent = ""
+// const cities = ["lonDon", "ManCHESTer", "BiRmiNGHAM", "liVERpoOL"]
+
+// for (const city of cities) {
+//   // write your code just below here
+//   const lower = city.toLowerCase()
+//   const firstletter = lower.slice(0, 1)
+//   const capitalized = lower.replace(firstletter, firstletter.toUpperCase())
+
+//   const result = capitalized
+//   const listItem = document.createElement("li")
+//   listItem.textContent = result
+//   list.appendChild(listItem)
+// }
+// Making new strings from old parts
 const list = document.querySelector(".output ul")
 list.textContent = ""
-const cities = ["lonDon", "ManCHESTer", "BiRmiNGHAM", "liVERpoOL"]
+const stations = [
+  "MAN675847583748sjt567654;Manchester Piccadilly",
+  "GNF576746573fhdg4737dh4;Greenfield",
+  "LIV5hg65hd737456236dch46dg4;Liverpool Lime Street",
+  "SYB4f65hf75f736463;Stalybridge",
+  "HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield",
+]
 
-for (const city of cities) {
+for (const station of stations) {
   // write your code just below here
-  const lower = city.toLowerCase()
-  const firstletter = lower.slice(0, 1)
-  const capitalized = lower.replace(firstletter, firstletter.toUpperCase())
+  const code = station.slice(0, 3)
+  console.log(code)
+  const semiColon = station.indexOf(";")
+  console.log(semiColon)
+  const name = station.slice(semiColon + 1)
+  console.log(name)
 
-  const result = capitalized
+  const result = `${code}: ${name}`
+  console.log(result)
+
   const listItem = document.createElement("li")
   listItem.textContent = result
   list.appendChild(listItem)
