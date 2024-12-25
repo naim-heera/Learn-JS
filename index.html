@@ -9,41 +9,56 @@
   <body>
     <h2>Live output</h2>
 
-    <div class="output" style="min-height: 125px">
+    <div class="output" style="min-height: 150px">
       <ul></ul>
+
+      <p></p>
     </div>
 
     <h2>Editable code</h2>
+
     <p class="a11y-label">
       Press Esc to move focus away from the code area (Tab inserts a tab
       character).
     </p>
 
-    <textarea id="code" class="playable-code" style="height: 285px; width: 95%">
-const list = document.querySelector('.output ul');
-list.textContent = "";
-const stations = ['MAN675847583748sjt567654;Manchester Piccadilly',
-                  'GNF576746573fhdg4737dh4;Greenfield',
-                  'LIV5hg65hd737456236dch46dg4;Liverpool Lime Street',
-                  'SYB4f65hf75f736463;Stalybridge',
-                  'HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield'];
-
-for (const station of stations) {
-  // write your code just below here
-
-  const result = station;
-  const listItem = document.createElement('li');
-  listItem.textContent = result;
-  list.appendChild(listItem);
-}
-</textarea
-    >
+    <textarea id="code" class="playable-code" style="height: 410px; width: 95%">
+    </textarea>
 
     <div class="playable-buttons">
       <input id="reset" type="button" value="Reset" />
       <input id="solution" type="button" value="Show solution" />
     </div>
 
-    <script src="string.js"></script>
+    <script src="array.js"></script>
+    <script>
+      const list = document.querySelector(".output ul")
+      const totalBox = document.querySelector(".output p")
+      let total = 0
+      list.textContent = ""
+      totalBox.textContent = ""
+
+      const products = [
+        "Underpants:6.99",
+        "Socks:5.99",
+        "T-shirt:14.99",
+        "Trousers:31.99",
+        "Shoes:23.99",
+      ]
+
+      for (const product of products) {
+        const subArray = product.split(":")
+        const name = subArray[0]
+        const price = Number(subArray[1])
+        total += price
+        const itemText = `${name} — $${price}`
+
+        const listItem = document.createElement("li")
+        listItem.textContent = itemText
+        list.appendChild(listItem)
+      }
+
+      totalBox.textContent = `Total: $${total.toFixed(2)}`
+    </script>
   </body>
 </html>
